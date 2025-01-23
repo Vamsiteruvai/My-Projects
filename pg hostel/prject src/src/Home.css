@@ -1,0 +1,57 @@
+/* Home.css */
+.home-container {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text for contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full screen height */
+    font-family: 'Arial', sans-serif;
+    gap: 12px;
+}
+
+.pg-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pg-heading {
+    font-size: 36px;
+    font-weight: bold;
+    color: #1e90ff; /* Highlighted blue color for heading */
+    text-shadow: 2px 2px 5px rgba(30, 144, 255, 0.5);
+}
+
+.btn {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #ff4500; /* Bright orange-red button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ff6347; /* Lighter red on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.btn:active {
+    transform: scale(0.95); /* Click effect */
+}
+
+.image {
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for the image */
+    max-width: 90%; /* Ensure responsiveness */
+}
+
+.image:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    transition: transform 0.3s ease;
+}

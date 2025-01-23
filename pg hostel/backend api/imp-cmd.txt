@@ -1,0 +1,22 @@
+This error indicates that PowerShell's execution policy is set to restrict script execution, which prevents the json-server script from running.
+
+Solution: Update PowerShell's Execution Policy
+Open PowerShell as Administrator:
+
+Press Win + S, type "PowerShell", right-click on "Windows PowerShell", and select "Run as Administrator".
+Check Current Execution Policy:
+
+powershell
+--------------->Get-ExecutionPolicy -List<----------------------
+This will show the execution policy for different scopes.
+
+Temporarily Allow Script Execution: You can bypass the restriction for the current session using:
+
+powershell
+------------------>Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass<---------------------------
+This allows script execution only for the current session and does not modify the system-wide policy.
+
+Run Your Command: Now, retry running the json-server command:
+
+powershell
+-------------------->json-server --watch ecommerce.json<------------------------------------------
