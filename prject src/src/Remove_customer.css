@@ -1,0 +1,84 @@
+/* Main container for Remove Customer */
+.remove_customer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    color: #ffffff;
+    padding: 20px;
+  }
+  
+  .remove_customer_sub {
+    width: 90%;
+    max-width: 500px;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+  /* Label styling */
+  .remove_customer_sub label {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+  }
+  
+  /* Input field styling */
+  .remove_customer_inner input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+  }
+  
+  .remove_customer_inner input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  /* Button styling */
+  .remove_customer_inner button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .remove_customer_inner button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+  
+  .remove_customer_inner button:active {
+    background-color: #1e7e34;
+    transform: translateY(2px);
+  }
+  
+  /* Disable button styling */
+  .remove_customer_inner button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+  }
+  
+  /* Message styling */
+  /* .remove_customer_sub p {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #f8d7da;
+    background-color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+  } */
+  

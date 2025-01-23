@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.rent_amount {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(17, 10, 107);
+    width: 50%;
+    position: absolute;
+    left: 55%;
+    top: 20%;
+    padding: 25px;
+    border-radius: 10px;
+    gap: 18px;
+
+}
+
+.payment_lable {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 90%;
+    top: 0%;
+
+}
+
+.rent_amount_details input::placeholder {
+    color: white;
+    /* Placeholder text color */
+    font-style: italic;
+    /* Italic style */
+    font-size: 12px;
+    /* Font size */
+}
+
+.rent_amount_input input::placeholder {
+    color: white;
+    /* Placeholder text color */
+    font-style: italic;
+    /* Italic style */
+    font-size: 12px;
+    /* Font size */
+}
+.rent_amount_details input{
+    width: 108%;
+    background-color:  rgb(17, 10, 107);
+    border-bottom: 0.5px solid white;
+    outline: none;
+} 
+.rent_amount_input input{
+    width: 100%;
+    background-color:  rgb(17, 10, 107);
+    border-bottom: 0.5px solid white;
+    outline: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input, textarea {
+    caret-color: white;  /* Removes the cursor color */
+}

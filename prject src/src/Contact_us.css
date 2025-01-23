@@ -1,0 +1,97 @@
+/* Contact_us.css */
+#con-container {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text for contrast */
+    padding: 30px 40px;
+    max-width: 700px;
+    margin: 50px auto; /* Center the container */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.contact_us_heading h2 {
+    font-size: 32px;
+    color: #1e90ff; /* Glowing blue */
+    text-shadow: 2px 2px 8px rgba(30, 144, 255, 0.6);
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #1e90ff; /* Stylish underline */
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    text-align: left; /* Align list items to the left */
+    margin-top: 20px;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #ddd; /* Softer white for list text */
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05); /* Subtle transparent background */
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1); /* Glow effect */
+    transition: transform 0.3s, background 0.3s;
+}
+
+ul li:hover {
+    background: rgba(30, 144, 255, 0.2); /* Highlighted hover background */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+ul li::before {
+    content: "•"; /* Default icon placeholder */
+    color: #1e90ff; /* Highlighted blue for icons */
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+/* Specific Icons */
+ul li:nth-child(1)::before {
+    content: "\f007"; /* User icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+ul li:nth-child(2)::before {
+    content: "\f0e0"; /* Email icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+ul li:nth-child(3)::before {
+    content: "\f095"; /* Phone icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+ul li:nth-child(4)::before {
+    content: "\f2b9"; /* Clock icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #con-container {
+        padding: 20px;
+    }
+
+    ul li {
+        font-size: 16px;
+    }
+
+    .contact_us_heading h2 {
+        font-size: 28px;
+    }
+}

@@ -1,0 +1,154 @@
+{
+  "products": [
+    {
+      "name": "telrgram",
+      "price": 54444,
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "onplus nord ce3",
+      "price": 18999
+    },
+    {
+      "id": "3ed4",
+      "name": "nord ce4",
+      "price": 21000
+    },
+    {
+      "id": "0fda",
+      "name": "nord ce4",
+      "price": 21000
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "name": "moto edge 50 fusion",
+      "count": 12
+    },
+    {
+      "id": "2",
+      "name": "iphone 16pro max",
+      "count": 45
+    },
+    {
+      "id": "3",
+      "name": "onplus nord ce3",
+      "count": 78
+    }
+  ],
+  "new_customer_details": [
+    {
+      "id": "43303",
+      "name": "Teruvai Vamsi",
+      "email": "teruvaivamsi9@gmail.com",
+      "phone": "9963383840",
+      "adhaar": "775793995827",
+      "address": "ramakur,rapur,nellore,andhra pradesh",
+      "father_name": "venky",
+      "father_phone": "9963383840",
+      "room_number": "101",
+      "advance_amount": "2000",
+      "advance_date": "23 Jan 2025, 11:12 am"
+    },
+    {
+      "id": "50697",
+      "name": "vanu",
+      "email": "teruvaivamsi9@gmail.com",
+      "phone": "9963383840",
+      "adhaar": "789456123012",
+      "address": "ramakur,rapur,nellore,andhra pradesh",
+      "father_name": "v",
+      "father_phone": "9963383840",
+      "room_number": "101",
+      "advance_amount": "2000",
+      "advance_date": "23 Jan 2025, 11:46 am"
+    },
+    {
+      "id": "45247",
+      "name": "jyothika",
+      "email": "j@gmail.com",
+      "phone": "9014052921",
+      "adhaar": "789456123012",
+      "address": "Ramakur(vil), Rapur(mon), nellore(dist)",
+      "father_name": "prabhakar",
+      "father_phone": "9963383840",
+      "room_number": "102",
+      "advance_amount": "2000",
+      "advance_date": "23 Jan 2025, 2:43 pm"
+    },
+    {
+      "id": "23199",
+      "name": "vanu",
+      "email": "teruvaivamsi9@gmail.com",
+      "phone": "9963383840",
+      "adhaar": "789456123012",
+      "address": "ramakur,rapur,nellore,andhra pradesh",
+      "father_name": "venkatarathnam",
+      "father_phone": "9963383840",
+      "room_number": "101",
+      "advance_amount": "2000",
+      "advance_date": "23 Jan 2025, 2:58 pm"
+    },
+    {
+      "id": "96394",
+      "name": "siraj",
+      "email": "teruvaivamsi9@gmail.com",
+      "phone": "9963383840",
+      "adhaar": "789456123012",
+      "address": "ramakur,rapur,nellore,andhra pradesh",
+      "father_name": "krishnaiah",
+      "father_phone": "9963383840",
+      "room_number": "101",
+      "advance_amount": "2000",
+      "advance_date": "23 Jan 2025, 3:02 pm"
+    },
+    {
+      "id": "47511",
+      "name": "Teruvai Vamsi",
+      "email": "teruvaivamsi9@gmail.com",
+      "phone": "9963383840",
+      "adhaar": "789456123012",
+      "address": "ramakur,rapur,nellore,andhra pradesh",
+      "father_name": "v",
+      "father_phone": "9963383840",
+      "room_number": "101",
+      "advance_amount": "2000",
+      "advance_date": "23 Jan 2025, 3:53 pm"
+    }
+  ],
+  "pay_advance": [],
+  "pay_rent": [
+    {
+      "id": "43303",
+      "rent_amount": "6000",
+      "rent_date": "23 Jan 2025, 11:12 am"
+    },
+    {
+      "id": "50697",
+      "rent_amount": "6000",
+      "rent_date": "23 Jan 2025, 11:46 am"
+    },
+    {
+      "id": "45247",
+      "rent_amount": "6000",
+      "rent_date": "23 Jan 2025, 2:43 pm"
+    },
+    {
+      "id": "23199",
+      "rent_amount": "6000",
+      "rent_date": "23 Jan 2025, 2:58 pm"
+    },
+    {
+      "id": "96394",
+      "rent_amount": "6000",
+      "rent_date": "23 Jan 2025, 3:02 pm"
+    },
+    {
+      "id": "47511",
+      "rent_amount": "6000",
+      "rent_date": "23 Jan 2025, 3:54 pm"
+    }
+  ]
+}
