@@ -1,0 +1,70 @@
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .contact-container {
+    text-align: center;
+    padding: 40px;
+    background: #eec9b4;
+    animation: fadeIn 1s ease-in-out;
+    width: 90%;
+    height: 450px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 2px 20px 0px rgb(110, 108, 108);
+    border-radius: 4px;
+  }
+  
+  .contact-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #3e2723;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+  
+  .contact-description {
+    font-size: 18px;
+    color: #5d4037;
+    margin: 10px 0 20px;
+  }
+  
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .contact-list li {
+    font-size: 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #3e2723;
+  }
+  
+  .contact-icon {
+    font-size: 24px;
+    color: #3e2723;
+  }
+
+  .contact-list a{
+    text-decoration: none;
+    color: black;
+    transition: margin-right 0.4s, margin-top 0.4s;
+  }
+  .contact-list a:hover{
+    padding: 9px;
+    width: 200px;
+    border-radius: 2px;
+    margin-right: 20px;
+    margin-top: 1px;
+    background-color: #eea4e2;
+
+  }
+  

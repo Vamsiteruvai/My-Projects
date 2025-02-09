@@ -1,0 +1,129 @@
+.orders-page {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* position: absolute;
+  top: 20%;
+  left: 40%; */
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-image: url('/path-to-background-image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.orders-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.orders-buttons,
+.analysis-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-left: -14%;
+}
+
+.orders-buttons button,
+.analysis-buttons button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+
+}
+
+.orders-buttons button:hover,
+.analysis-buttons button:hover {
+  background-color: #0056b3;
+}
+
+.orders-table-container {
+  position: absolute;
+  right: 20%;
+  top: 25%;
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.orders-table th {
+  background-color: #f0f0f0;
+}
+
+.orders-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.form-container1 {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 15px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field1 {
+  width: 90%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-button1 {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-button1:hover {
+  background-color: #0056b3;
+}
+
+.back-to-dashboard {
+  margin-top: 15px;
+  background-color: #dc3545;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.back-to-dashboard:hover {
+  background-color: #c82333;
+}
+
+.orders-buttons>button :last-child {
+  text-decoration: none;
+  color: white;
+}
