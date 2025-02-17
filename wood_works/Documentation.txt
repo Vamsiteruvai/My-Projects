@@ -1,0 +1,259 @@
+										Project Documentation
+											Woodworks
+
+Project Overview:
+
+Woodworks is a modern e-commerce web application that allows users to browse, purchase, and manage wood-based products. It is built using React.js for the frontend, Node.js (Express.js) for the backend, and MySQL (phpMyAdmin) for the database. The project follows a modular architecture with RESTful APIs for efficient data management.
+
+Technologies Used
+
+Frontend: React.js
+Backend: Node.js, Express.js
+Database: MySQL (phpMyAdmin)
+Additional Packages: Multer (for file uploads), Cors (for cross-origin requests)
+
+Project Folder Structure:
+
+woodworks_/
+│── database/
+│   ├── woodworks.sql   # MySQL database schema and sample data
+│── sourcefiles_/
+│   ├── public/         # Static files (uploads, assets)
+│   ├── src/            # React frontend components
+│   ├── Server.js       # Express backend server
+│   ├── package.json    # Project dependencies and scripts
+│   ├── vite.config.js  # Vite configuration file
+│── uploads/            # Stores product images
+
+
+Features and Source Code
+
+1. User Authentication
+-->Registration and login system.
+-->Secure password storage using hashing.
+
+Backend (Server.js):
+
+
+import express from 'express';
+import mysql2 from 'mysql2';
+import cors from 'cors';
+import bcrypt from 'bcrypt';
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+const db = mysql2.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'woodworks'
+});
+
+app.post('/register', async (req, res) => {
+  const { name, email, password } = req.body;
+  const hashedPassword = await bcrypt.hash(password, 10);
+  db.query('INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
+    [name, email, hashedPassword], (err, result) => {
+      if (err) return res.status(500).json({ error: err });
+      res.status(200).json({ message: 'User registered successfully' });
+  });
+});
+
+
+
+2. Product Management
+-->Admins can add, edit, and delete products.
+-->Users can view products with details like name, price, and images.
+
+Backend API (Server.js):
+
+
+app.get('/products', (req, res) => {
+  db.query('SELECT * FROM products', (err, results) => {
+    if (err) return res.status(500).json({ error: err });
+    res.status(200).json(results);
+  });
+});
+
+Frontend (React Component):
+
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const ProductList = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:4500/products')
+      .then(response => setProducts(response.data))
+      .catch(error => console.error('Error fetching products:', error));
+  }, []);
+
+  return (
+    <div>
+      {products.map(product => (
+        <div key={product.id}>
+          <h3>{product.name}</h3>
+          <p>Price: {product.price}</p>
+        </div>
+      ))}
+    </div>
+  );
+};
+export default ProductList;
+
+
+
+3. Shopping Cart
+-->Users can add/remove products from their cart.
+-->Cart items persist in the session.
+
+
+Frontend (React State Management):
+
+
+import React, { useState } from 'react';
+
+const ShoppingCart = () => {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
+  return (
+    <div>
+      <h2>Shopping Cart</h2>
+      {cart.map((item, index) => (
+        <div key={index}>{item.name} - ${item.price}</div>
+      ))}
+    </div>
+  );
+};
+export default ShoppingCart;
+
+
+
+4. Order Processing
+-->Users can place orders and receive email confirmations.
+-->Order history is maintained in MySQL.
+
+Backend API (Server.js):
+
+
+app.post('/order', (req, res) => {
+  const { userId, productId, quantity } = req.body;
+  db.query('INSERT INTO orders (user_id, product_id, quantity) VALUES (?, ?, ?)',
+    [userId, productId, quantity], (err, result) => {
+      if (err) return res.status(500).json({ error: err });
+      res.status(200).json({ message: 'Order placed successfully' });
+  });
+});
+
+
+
+5. Image Management
+-->Product images are uploaded using Multer.
+-->Stored in the Uploads/ folder, accessible via http://127.0.0.1:4500/uploads/${product.image_url}.
+
+Backend API (Multer for File Uploads):
+
+
+import multer from 'multer';
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ storage });
+app.post('/upload', upload.single('image'), (req, res) => {
+  res.json({ imageUrl: `http://127.0.0.1:4500/uploads/${req.file.filename}` });
+});
+
+
+
+
+6. Database Schema (MySQL)
+
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  price DECIMAL(10,2) NOT NULL,
+  image VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE orders (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  product_id INT,
+  quantity INT,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+
+
+7. API Endpoints
+GET /products - Fetch all products.
+POST /products - Add a new product.
+PUT /products/:id - Update product details.
+DELETE /products/:id - Remove a product.
+POST /upload - Upload product images.
+
+
+
+8. Database Schema
+users - Stores user details (id, name, email, password).
+products - Stores product details (id, name, price, image).
+orders - Stores user orders.
+
+
+
+
+How to Run the Project
+
+Install dependencies
+-->cd sourcefiles
+-->npm install
+
+Start the Backend
+-->npm start
+
+Start the Frontend
+-->npm run dev
+
+Import Database
+-->Open phpMyAdmin
+-->Create a database named woodworks
+-->Import woodworks.sql file
+
+
+
+Future Enhancements:
+
+-->Payment gateway integration.
+-->Admin dashboard for better product management.
+-->Customer reviews and ratings.
+
+
+
+Conclusion:
+Woodworks is a fully functional e-commerce platform built with React.js, Node.js, and MySQL.
+The project is designed for scalability and can be further improved with advanced features.
+
+Note: Rest of the code can copy from project src.
