@@ -1,0 +1,111 @@
+.osn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-top: 5%;
+  }
+  
+  .osn-main {
+    width: 80%;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .osn-image {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .osn-image img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  
+  .osn-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .osn-sidebar {
+    width: 25%;
+    background: #eee;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .osn-form-container {
+    width: 70%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .form-box {
+    display: flex;
+    width: 200%;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .form-box.slide {
+    transform: translateX(-50%);
+  }
+  
+  .login-form, .register-form {
+    width: 50%;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 80%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  p {
+    cursor: pointer;
+    color: #007bff;
+  }
+  
+  p:hover {
+    text-decoration: none;
+  }
+
+  .osn-sidebar ul{
+    color: black;
+    list-style: none;
+  }
+  .osn-sidebar ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 10px;
+    display: block;
+}
+
+.osn-sidebar ul li a:hover {
+    color: #00ccff;
+}

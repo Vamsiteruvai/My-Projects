@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ex.css">
+</head>
+<body class="container" id="mass">
+    <div class="div" id="demo">
+        <div class="resultset">
+            <input type="text" id="text" readonly > 
+        </div>
+        <div class="btnall">
+            <div class="btn">
+                <button class="clr" onclick="clearDisplay()">c</button>
+                <button class="clr" onclick="deletedata()">DEL</button>
+                <button class="clr" onclick="appendToresult('%')">%</button>
+                <button class="clr" onclick="appendToresult('/')">/</button> 
+            </div>
+            <div class="btn">
+                <button onclick="appendToresult('7')">7</button>
+                <button onclick="appendToresult('8')">8</button>
+                <button onclick="appendToresult('9')">9</button>
+                <button class="clr" onclick="appendToresult('*')">*</button> 
+            </div>
+            <div class="btn">
+                <button onclick="appendToresult('4')">4</button>
+                <button onclick="appendToresult('5')">5</button>
+                <button onclick="appendToresult('6')">6</button>
+                <button class="clr" onclick="appendToresult('-')">-</button> 
+            </div>
+            <div class="btn">
+                <button onclick="appendToresult('1')">1</button>
+                <button onclick="appendToresult('2')">2</button>
+                <button onclick="appendToresult('3')">3</button>
+                <button class="clr" onclick="appendToresult('+')">+</button> 
+            </div>
+            <div class="btn">
+                <button onclick="appendToresult('0')">0</button>
+                <button onclick="appendToresult('.')">.</button>
+                <button class="clr" onclick="calculate()" id="equal">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="person.js"></script>  
+</body>
+</html>

@@ -1,0 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+.div {
+    background-color: aliceblue;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    box-shadow: 0px 0px 10px gray;    
+}
+button {
+    width: 65px;
+    margin: 1.5px;
+    height: 60px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    background-color: lightgray;
+    
+     
+}
+#text{
+    width: 290px;
+    border: 0px solid aliceblue;
+    height: 80px;
+    background-color: aliceblue;
+    font-size: 20px;
+    outline: none;
+}
+.btn{
+    margin: 0px;
+     
+}
+#equal{
+    width: 138px;
+}
+button:hover {
+    transition: 0.3 ease;
+    color:  red;
+}
+.clr{
+    background-color: orange;
+}
+ 
+ 
