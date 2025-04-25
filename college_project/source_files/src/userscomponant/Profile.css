@@ -1,3 +1,17 @@
+.profile-container table thead tr{
+    border: 1px solid black;
+}
+.profile-container table tbody tr{
+    border: 1px solid black;
+}
+.profile-container table{
+    border: 1px solid black;
+}
+.profile-pic > .profile{
+    height: 200px;
+    border-radius: 30px;
+}
+
 /* Home.css */
 
 .home-componant {

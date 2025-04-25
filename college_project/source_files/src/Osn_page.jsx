@@ -5,10 +5,20 @@ import { Link } from 'react-router-dom'
 
 const Osn_page = () => {
     const [isRegister, setIsRegister] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
     const toggleForm = () => {
         setIsRegister(!isRegister);
     };
+
+    const getAuthent=()=>{
+
+        if(username==="vamsi9@gmail.com" && password==="osnserver123"){
+            localStorage.setItem("isLoggedIn",true);
+            window.location.href="/osn_welcome";
+        }
+    }
 
     return (
         <div className="osn-container">
@@ -28,9 +38,9 @@ const Osn_page = () => {
                         <div className={`form-box ${isRegister ? "slide" : ""}`}>
                             <div className="login-form">
                                 <h2>OSN Login</h2>
-                                <input type="text" placeholder="Username" />
-                                <input type="password" placeholder="Password" />
-                                <button>Login</button>
+                                <input type="text" placeholder="Username" value={username} onChange={(e)=>(setUsername(e.target.value))}/>
+                                <input type="password" placeholder="Password" value={password} onChange={(e)=>(setPassword(e.target.value))}/>
+                                <button onClick={getAuthent}>Login</button>
                                 <p onClick={toggleForm}>Don't have an account? Register</p>
                             </div>
                             <div className="register-form">

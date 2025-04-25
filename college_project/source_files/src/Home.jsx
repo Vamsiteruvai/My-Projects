@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import './Home.css';
 import image from './assets/header.jpg';
+import { useState } from "react";
 
 function Home() {
+    let home= localStorage.getItem("home");
+    console.log(localStorage.getItem("home"));
     return (
         <>
             <div className="home-componant">

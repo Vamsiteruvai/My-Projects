@@ -12,7 +12,6 @@ function Osn_welcome() {
                 <div className="home-view">
                     <div className="home-sidebar">
                         <ul>
-                            <li><Link to="/">Home</Link></li>
                             <li><Link to="/">View all users</Link></li>
                             <li><Link to="/">Add filters</Link></li>
                             <li><Link to="/">View all friend request & responses</Link></li>
@@ -21,7 +20,6 @@ function Osn_welcome() {
                             <li><Link to="/">View all untrust assessment details</Link></li>
                             <li><Link to="/">View all trust assessment details</Link></li>
                             <li><Link to="/">View all ratings</Link></li>
-                            <li><Link to="/">Log out</Link></li>
                         </ul>
                     </div>
                     <div className="home-content">
