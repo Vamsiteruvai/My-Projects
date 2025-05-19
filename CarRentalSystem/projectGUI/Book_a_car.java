@@ -19,7 +19,7 @@ public class Book_a_car extends JFrame{
 	private JComboBox<String> carNamesBox;
 	private JButton bookBTN,backBTN;
 	
-	public Book_a_car(int id) {
+	public Book_a_car(int id,String name1) {
 		setTitle("Book a Car");
 	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setSize(900, 600);
@@ -40,7 +40,7 @@ public class Book_a_car extends JFrame{
 	    add(carLabel);
 	    
 	    //set drop-downboxes
-	    String[] car= {"Select","Toyata","Hyundai","Tata","Kia","Mahindra","Maruti","Renault","Ford","Honda","Skoda","MG"};
+	    String[] car= {"Select","BMW","Fortuner","Ford"};
 	    carNamesBox=new JComboBox<>(car);
 	    carNamesBox.setBounds(500,90,100,30);
 	    add(carNamesBox);
@@ -110,7 +110,7 @@ public class Book_a_car extends JFrame{
 	    //action listners
 		backBTN.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
-	            new Userdashboard(0);
+	            new Userdashboard(id,name1);
 	            dispose();
 	        }
 	    });

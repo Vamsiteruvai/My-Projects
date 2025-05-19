@@ -26,7 +26,7 @@ public class Userdashboard extends JFrame {
     private JLabel customersCountLabel;
     private JLabel bookedCountLabel;
 
-    public Userdashboard(int id) {
+    public Userdashboard(int id,String name1) {
         setTitle("User Dashboard");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 600);
@@ -51,7 +51,7 @@ public class Userdashboard extends JFrame {
             button.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     if(e.getActionCommand().equals("Book a Car")) {
-                    	new Book_a_car(id);
+                    	new Book_a_car(id,name1);
                     	dispose();
                     }
                     else if(e.getActionCommand().equals("Back to Login")) {
@@ -67,10 +67,17 @@ public class Userdashboard extends JFrame {
             sidePanel.add(button);
         }
 
-        // Admin Label
-        JLabel adminLabel = new JLabel("User");
-        adminLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        // user Label
+        JLabel adminLabel = new JLabel("Welcome ");
+        adminLabel.setFont(new Font("Arial", Font.BOLD, 18));
+		adminLabel.setForeground(new Color(102, 204, 0));
         adminLabel.setBounds(160, 10, 200, 30);
+        
+        JLabel name = new JLabel();
+        name.setFont(new Font("Arial", Font.BOLD, 16));
+		name.setForeground(Color.BLACK);
+        name.setBounds(250, 10, 200, 30);
+        name.setText(name1);
 
         // Dashboard Cards Panel
         JPanel dashboardPanel = new JPanel();
@@ -89,6 +96,7 @@ public class Userdashboard extends JFrame {
 
         add(sidePanel);
         add(adminLabel);
+        add(name);
         add(dashboardPanel);
 
         setVisible(true);
@@ -96,7 +104,7 @@ public class Userdashboard extends JFrame {
     
     //show bookings
     private void showBookingDetailsFrame(int id) {
-		JFrame carFrame = new JFrame("Car Details");
+		JFrame carFrame = new JFrame("Book Car");
 		carFrame.setSize(600, 400);
 		carFrame.setLocationRelativeTo(null);
 
@@ -110,7 +118,7 @@ public class Userdashboard extends JFrame {
 	}
     
     //getting data for bookings
-  	private static String[][] getData2(int id) {
+  	public static String[][] getData2(int id) {
   		String url = "jdbc:mysql://localhost:3306/carrentalsystem";
   		String user = "root";
   		String dbpassword = "@@@Vamsi143";
@@ -191,5 +199,5 @@ public class Userdashboard extends JFrame {
     	int count=JDBC.DisplayCount.bookCount();
         return String.valueOf(count);
     }
-
+    
 }

@@ -50,7 +50,7 @@ public class book_car {
             int rows = pst.executeUpdate();
 
             if (rows > 0) {
-            	JOptionPane.showMessageDialog(new JFrame(), "Registered Successfully");
+            	JOptionPane.showMessageDialog(new JFrame(), "Booked Successfully");
             }
 
             // Close connections

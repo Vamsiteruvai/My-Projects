@@ -118,6 +118,7 @@ public class LoginGUI{
 		signInButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int id=validate(usernameField, passwordField);
+				String name=getUserName(usernameField, passwordField);
 				char[] password=passwordField.getPassword();
 				String pass=new String(password);
 				if(usernameField.getText().equals("Admin") && pass.equals("Admin")) {
@@ -125,7 +126,7 @@ public class LoginGUI{
 					frame.dispose();
 				}
 				else if(id!=0) {
-					new Userdashboard(id);
+					new Userdashboard(id,name);
 					frame.dispose();
 				}
 				else {
@@ -193,6 +194,40 @@ public class LoginGUI{
 
 		}
 		return 0;
+	}
+	
+	private static String getUserName(JTextField username,JTextField password) {
+		//set connection
+		String url = "jdbc:mysql://localhost:3306/carrentalsystem";
+		String user = "root";
+		String dbpassword = "@@@Vamsi143";
+
+		try {
+			//load jdbc driver
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			//make connection
+			Connection con=DriverManager.getConnection(url,user,dbpassword);
+
+			//sql query
+			String sql="select first_name from user where email=? and password=?";
+
+			PreparedStatement smt=con.prepareStatement(sql);
+
+			smt.setString(1, username.getText().trim());
+			smt.setString(2, password.getText().trim());
+
+			ResultSet rs=smt.executeQuery();
+			
+			if(rs.next()) {
+				//System.out.println(rs.getInt("user_id"));
+				return rs.getString("first_name");
+			}
+
+		} catch (Exception e) {
+
+		}
+		return null;
 	}
 
 }

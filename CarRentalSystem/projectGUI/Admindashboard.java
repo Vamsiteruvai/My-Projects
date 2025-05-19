@@ -84,7 +84,7 @@ public class Admindashboard extends JFrame {
 
 		// Admin Label
 		JLabel adminLabel = new JLabel("Admin");
-		adminLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+		adminLabel.setFont(new Font("Arial", Font.BOLD, 18));
 		adminLabel.setBounds(160, 10, 200, 30);
 
 		// Dashboard Cards Panel
