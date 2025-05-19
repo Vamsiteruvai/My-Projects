@@ -70,13 +70,13 @@ public class Actions implements Manager{
 				System.out.println("Enter NewName");
 				String name=sc.next();
 				customer.setCustomerName(name);
-				System.out.println("-----------!Updated successfully with 			'"+name+"' !--------------");
+				System.out.println("-----------!Updated successfully with  '"+name+"' !--------------");
 				break;
 			case 2:
 				System.out.println("Enter NewAddress");
 				String address=sc.next();
 				customer.setCustomerAddress(address);
-				System.out.println("-----------!Updated successfully with 	'"+address+"' !--------------");
+				System.out.println("-----------!Updated successfully with '"+address+"' !--------------");
 			}
 		}
 		else{
