@@ -40,7 +40,7 @@ public class Book_a_car extends JFrame{
 	    add(carLabel);
 	    
 	    //set drop-downboxes
-	    String[] car= {"Select","BMW","Fortuner","Ford"};
+	    String[] car= {"Select","Toyata","Hyundai","Tata","Kia","Mahindra","Maruti","Renault","Ford","Honda","Skoda","MG"};
 	    carNamesBox=new JComboBox<>(car);
 	    carNamesBox.setBounds(500,90,100,30);
 	    add(carNamesBox);

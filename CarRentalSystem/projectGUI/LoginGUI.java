@@ -50,7 +50,7 @@ public class LoginGUI{
 		frame.add(subHeadingLabel);
 
 		//Username label
-		usernameLabel = new JLabel("Username :");
+		usernameLabel = new JLabel("Email :");
 		usernameLabel.setBounds(150, 147, 80, 30);
 		usernameLabel.setForeground(Color.white);
 		frame.add(usernameLabel);

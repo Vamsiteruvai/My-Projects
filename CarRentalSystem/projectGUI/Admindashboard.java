@@ -42,7 +42,7 @@ public class Admindashboard extends JFrame {
 		sidePanel.setBounds(0, 0, 150, 600);
 		sidePanel.setLayout(new GridLayout(8, 1, 0, 10));
 
-		String[] menuItems = {"User Info","Show Cars","Show Bookings","Add Car","Delete Car","Update Car","Back to Login"};
+		String[] menuItems = {"User Info","Show Cars","Show Bookings","Add Car","Delete Car","Update Car","Logout"};
 		for (String item : menuItems) {
 			JButton button = new JButton(item);
 			button.setForeground(Color.WHITE);

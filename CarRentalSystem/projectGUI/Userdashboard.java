@@ -39,7 +39,7 @@ public class Userdashboard extends JFrame {
         sidePanel.setBounds(0, 0, 150, 600);
         sidePanel.setLayout(new GridLayout(8, 1, 0, 10));
 
-        String[] menuItems = {"Book a Car","Bookings","Back to Login"};
+        String[] menuItems = {"Book a Car","Bookings","Logout"};
         for (String item : menuItems) {
             JButton button = new JButton(item);
             button.setForeground(Color.WHITE);
