@@ -72,7 +72,7 @@ public class Admindashboard extends JFrame {
 					else if(e.getActionCommand().equals("Update Car")) {
 						new carUpdationGUI();
 					}
-					else if(e.getActionCommand().equals("Back to Login")) {
+					else if(e.getActionCommand().equals("Logout")) {
 						new LoginGUI();
 						dispose();
 					}

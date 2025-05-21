@@ -39,7 +39,7 @@ public class Userdashboard extends JFrame {
         sidePanel.setBounds(0, 0, 150, 600);
         sidePanel.setLayout(new GridLayout(8, 1, 0, 10));
 
-        String[] menuItems = {"Book a Car","Bookings","Logout"};
+        String[] menuItems = {"Profile","Book a Car","Bookings","Logout"};
         for (String item : menuItems) {
             JButton button = new JButton(item);
             button.setForeground(Color.WHITE);
@@ -54,12 +54,15 @@ public class Userdashboard extends JFrame {
                     	new Book_a_car(id,name1);
                     	dispose();
                     }
-                    else if(e.getActionCommand().equals("Back to Login")) {
+                    else if(e.getActionCommand().equals("Logout")) {
                     	new LoginGUI();
                     	dispose();
                     }
                     else if(e.getActionCommand().equals("Bookings")) {
                     	showBookingDetailsFrame(id);
+                    }
+					else if(e.getActionCommand().equals("Profile")) {
+                    	new ProfileGUI(id);
                     }
                 }
             });
