@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class book_car {
-	public static void bookNow(JComboBox<String> names,JTextField start,JTextField returnDate,JTextField rentPday,JTextField pick,JTextField drop,int id) {
+	public static void bookNow(JComboBox<String> names,JTextField start,JTextField returnDate,double rentPday,JTextField pick,JTextField drop,int id,String model2) {
 		String url = "jdbc:mysql://localhost:3306/carrentalsystem";
         String user = "root";
         String dbpassword = "@@@Vamsi143";
@@ -22,7 +22,7 @@ public class book_car {
 
         Date return1 = Date.valueOf(returnDate.getText().trim());
 
-        Double rentPerDay = Double.parseDouble(rentPday.getText().trim());
+        Double rentPerDay = rentPday;
 
         String pickL = pick.getText().trim();
 
@@ -36,7 +36,7 @@ public class book_car {
             Connection con = DriverManager.getConnection(url, user, dbpassword);
 
             // Prepare SQL insert
-            String sql = "INSERT INTO rent (rent_start_date, rent_end_date, rent_price_per_day, pickupLocation, dropLocation, car_name,user_id) VALUES (?, ?, ?, ?, ?, ?,?)";
+            String sql = "INSERT INTO rent (rent_start_date, rent_end_date, rent_price_per_day, pickupLocation, dropLocation, car_name,user_id,model) VALUES (?, ?, ?, ?, ?, ?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
 
             pst.setDate(1, start1);
@@ -46,6 +46,7 @@ public class book_car {
             pst.setString(5, dropL);
             pst.setString(6, name);
             pst.setInt(7, id);
+			pst.setString(8,model2);
 
             int rows = pst.executeUpdate();
 

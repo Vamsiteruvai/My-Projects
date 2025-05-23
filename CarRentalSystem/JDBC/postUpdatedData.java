@@ -19,7 +19,7 @@ public class postUpdatedData {
 	        Class.forName("com.mysql.cj.jdbc.Driver");
 	        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/carrentalsystem", "root", "@@@Vamsi143");
 
-	        String sql = "";
+	        String sql;
 	        if (!(id==0)) {
 	            sql = "UPDATE car SET brand = ?,price=?,colour=?,model=?,mileage=?,seating_capacity=? WHERE car_id = ?";
 	            stmt = con.prepareStatement(sql);
@@ -44,7 +44,7 @@ public class postUpdatedData {
 	        }
 
 	    } catch (Exception ex) {
-	        JOptionPane.showMessageDialog(new JFrame(), "Error updating record: " + ex.getMessage());
+	        JOptionPane.showMessageDialog(new JFrame(), "Error updating record");
 	    } finally {
 	        try {
 	            if (stmt != null) stmt.close();

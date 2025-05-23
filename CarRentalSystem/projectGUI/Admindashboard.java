@@ -174,7 +174,7 @@ public class Admindashboard extends JFrame {
 		//main heading label
 		JLabel title=new JLabel("Delete Car");
 		title.setBounds(250, 10, 300, 30);
-		title.setFont(new Font("Arial", Font.BOLD, 21));
+		title.setFont(new Font("Arial", Font.BOLD, 18));
 		carFrame.add(title);
 
 		//carId label
@@ -184,12 +184,14 @@ public class Admindashboard extends JFrame {
 
 		//carText
 		JTextField carTextField=new JTextField();
-		carTextField.setBounds(300, 50, 100, 30);
+		carTextField.setBounds(250, 50, 100, 30);
 		carFrame.add(carTextField);
 
 		//delete btn
 		JButton delButton=new JButton("Remove");
-		delButton.setBounds(300, 90, 90, 30);
+		delButton.setBounds(380, 50, 90, 30);
+		delButton.setBackground(Color.red);
+		delButton.setForeground(Color.white);
 		carFrame.add(delButton);
 		
 		

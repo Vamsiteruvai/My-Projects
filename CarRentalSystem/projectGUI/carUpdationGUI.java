@@ -137,13 +137,21 @@ public class carUpdationGUI extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				int id=Integer.parseInt(idText.getText().trim());
+				int id,seating_capacity;
+				Double price;
 				String brand=brandText.getText().trim();
-				Double price=Double.parseDouble(priceText.getText().trim());
 				String colour=colorText.getText().trim();
 				String model=modelText.getText().trim();
 				String mileage=mileageText.getText().trim();
-				int seating_capacity=Integer.parseInt(seatText.getText().trim());
+				try {
+					id=Integer.parseInt(idText.getText().trim());
+					seating_capacity=Integer.parseInt(seatText.getText().trim());
+					price=Double.parseDouble(priceText.getText().trim());
+				}catch (Exception ex) {
+					id=0;
+					seating_capacity=0;
+					price=0.0;
+				}
 				postUpdatedData.postData(id,brand,price,colour,model,mileage,seating_capacity);
 				idText.setText("");
 				brandText.setText("");
@@ -152,6 +160,7 @@ public class carUpdationGUI extends JFrame{
 				modelText.setText("");
 				mileageText.setText("");
 				seatText.setText("");
+				dispose();
 			}
 		});
 	}

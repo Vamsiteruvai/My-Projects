@@ -10,14 +10,18 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+import java.util.*;
 
-import JDBC.book_car;
+import JDBC.*;
+
 
 public class Book_a_car extends JFrame{
-	private JLabel titleJLabel,carLabel,startLabel,returLabel,rentPerday,pickupLocation,dropLocation,bookStatus;
-	private JTextField startDate,returnDate,rentperDayText,pickupLocationText,dropLocationText,bookStatusText;
-	private JComboBox<String> carNamesBox;
-	private JButton bookBTN,backBTN;
+	private JLabel titleJLabel,carLabel,startLabel,returLabel,rentPerday,pickupLocation,dropLocation,bookStatus,seatLabel;
+	private JTextField startDate,returnDate,rentperDayText,pickupLocationText,dropLocationText,bookStatusText,rentperDayText1;
+	private JComboBox<String> carNamesBox,carNamesBox1;
+	private JButton bookBTN,backBTN,getModel;
+	private String[] model=null;
 	
 	public Book_a_car(int id,String name1) {
 		setTitle("Book a Car");
@@ -35,7 +39,7 @@ public class Book_a_car extends JFrame{
 	    add(titleJLabel);
 	    
 	    //set car label
-	    carLabel=new JLabel("Cars : ");
+	    carLabel=new JLabel("Cars & Model : ");
 	    carLabel.setBounds(300,90,100,30);
 	    add(carLabel);
 	    
@@ -44,7 +48,22 @@ public class Book_a_car extends JFrame{
 	    carNamesBox=new JComboBox<>(car);
 	    carNamesBox.setBounds(500,90,100,30);
 	    add(carNamesBox);
-	    
+		
+		//set drop-downboxes1
+	    model= new String[4];
+	    carNamesBox1=new JComboBox<>(model);
+	    carNamesBox1.setBounds(610,90,100,30);
+	    add(carNamesBox1);
+		
+		//set getModel button
+		getModel=new JButton("GetModel");
+		getModel.setBounds(720,90,100,30);
+		getModel.setBackground(Color.GREEN);
+		getModel.setForeground(Color.white);
+		getModel.setFocusPainted(false);   // Removes focus highlight (dotted border)
+		getModel.setBorderPainted(false); 
+		add(getModel);
+		
 	    //set start label
 	    startLabel=new JLabel("Start Date(YYYY-MM-DD) : ");
 	    startLabel.setBounds(300,130,180,30);
@@ -66,15 +85,27 @@ public class Book_a_car extends JFrame{
 	    add(returnDate);
 	    
 	    //set rentperday label
-	    rentPerday=new JLabel("Rent PerDay : ");
-	    rentPerday.setBounds(300,210,100,30);
+	    rentPerday=new JLabel("Rent PerDay(5&7) : ");
+	    rentPerday.setBounds(300,210,120,30);
 	    add(rentPerday);
 	    
 	    //set rent per day Text Field
-	    rentperDayText=new JTextField();
+	    rentperDayText=new JTextField("1500");
 	    rentperDayText.setBounds(500,210,100,30);
+		rentperDayText.setEditable(false);
 	    add(rentperDayText);
-	    
+		
+		//set rent per day Text1 Field
+	    rentperDayText1=new JTextField("2000");
+	    rentperDayText1.setBounds(610,210,100,30);
+		rentperDayText1.setEditable(false);
+	    add(rentperDayText1);
+		
+	    //set label
+		seatLabel=new JLabel("Rent per day Amount will based on Car seating capacity(5/7)");
+		seatLabel.setBounds(500,240,400,30);
+		add(seatLabel);
+		
 	    //set pickupLocation label
 	    pickupLocation=new JLabel("Pickup Location : ");
 	    pickupLocation.setBounds(300,290,100,30);
@@ -105,6 +136,8 @@ public class Book_a_car extends JFrame{
 	    backBTN=new JButton("back");
 	    backBTN.setBounds(100,500,100,30);
 	    add(backBTN);
+		
+
 	    setVisible(true);
 	    
 	    //action listners
@@ -117,13 +150,44 @@ public class Book_a_car extends JFrame{
 		
 		bookBTN.addActionListener(new ActionListener() {
 	        public void actionPerformed(ActionEvent e) {
-	            book_car.bookNow(carNamesBox,startDate,returnDate,rentperDayText,pickupLocationText,dropLocationText,id);
+				String str=(String)carNamesBox.getSelectedItem();
+				double seat=CarPrice.getSeatingNumber(str);
+				String model2=(String)carNamesBox1.getSelectedItem();
+				try{
+					book_car.bookNow(carNamesBox,startDate,returnDate,seat,pickupLocationText,dropLocationText,id,model2);
+				}
+	            catch(Exception exception){
+					JOptionPane.showMessageDialog(new JFrame(), "Please fill all the Fields");
+				}
 	            startDate.setText("");
 	            returnDate.setText("");
-	            rentperDayText.setText("");
 	            pickupLocationText.setText("");
 	            dropLocationText.setText("");
+				carNamesBox.setSelectedItem("select");
 	        }
 	    });
+		
+		getModel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String brand = (String) carNamesBox.getSelectedItem();
+
+				// Avoid invalid brand selection
+				if (brand.equals("Select")) {
+					JOptionPane.showMessageDialog(new JFrame(), "Please select a valid brand.");
+					return;
+				}
+
+				String[] models = CarPrice.getModels(brand);
+
+				if (models != null && models.length > 0) {
+					// Update the JComboBox with the new model array
+					carNamesBox1.setModel(new javax.swing.DefaultComboBoxModel<>(models));
+				} else {
+					JOptionPane.showMessageDialog(new JFrame(), "No models found for this brand.");
+					carNamesBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"No Models"}));
+				}
+			}
+		});
+
 	}
 }
