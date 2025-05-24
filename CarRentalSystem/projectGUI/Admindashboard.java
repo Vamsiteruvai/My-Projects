@@ -224,8 +224,11 @@ public class Admindashboard extends JFrame {
             if(row>0) {
             	JOptionPane.showMessageDialog(new JFrame(), "Deleted Successfully");
             }
+			else{
+				JOptionPane.showMessageDialog(new JFrame(), "Enter Car Id");
+			}
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(new JFrame(),e.getMessage());
+			JOptionPane.showMessageDialog(new JFrame(),"Enter Car Id");
 		}
 	}
 	
@@ -487,9 +490,12 @@ public class Admindashboard extends JFrame {
 			if(row>0) {
 				JOptionPane.showMessageDialog(new JFrame(), "Registered Successfully");
 			}
+			else{
+				JOptionPane.showMessageDialog(new JFrame(), "Fields not be Empty");
+			}
 		}
 		catch (Exception e) {
-			JOptionPane.showMessageDialog(new JFrame(), e.getMessage());
+			JOptionPane.showMessageDialog(new JFrame(), "Fields not be Empty");
 		}
 	}
 

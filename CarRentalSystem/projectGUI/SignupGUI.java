@@ -207,8 +207,11 @@ public class SignupGUI{
 	}
 	private static boolean errorHandle() {
 		boolean errorCheck=false;
-
-		if (!email.getText().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
+		if(firstname.getText().equals("")||phone.getText().equals("")||address.getText().equals("")||email.getText().equals("")||password.getText().equals("")||adhaar.getText().equals("")||designation.getText().equals("")) {
+			JOptionPane.showMessageDialog(frame, "Invalid Inputs!");
+	        return true;
+		}
+		else if (!email.getText().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")) {
 			JOptionPane.showMessageDialog(frame, "Invalid email format!");
 	        return true;
 	    }

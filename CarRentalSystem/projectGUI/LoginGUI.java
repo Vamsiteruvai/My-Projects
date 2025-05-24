@@ -80,7 +80,7 @@ public class LoginGUI{
 		frame.add(passwordField);
 
 		//SignIn Button
-		signInButton = new JButton("Login");
+		signInButton = new JButton("Signin");
 		signInButton.setBounds(360, 270, 100, 30);
 		signInButton.setBackground(Color.green);
 		signInButton.setFocusPainted(false);   // Removes focus highlight (dotted border)
