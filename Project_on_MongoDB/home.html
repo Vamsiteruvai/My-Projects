@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./home.css">
+</head>
+
+<body>
+    <div class="container">
+        <form class="form">
+            <div class="id">
+                <label>Student Id : </label>
+                <input name="id" id="id" type="text" placeholder="Enter Student Id">
+            </div>
+            <div class="name">
+                <label>Name : </label>
+                <input name="name" id="name1" type="text" placeholder="Enter Student Name">
+            </div>
+            <div class="marks">
+                <label>Marks : </label>
+                <input name="marks" id="marks" type="text" placeholder="Enter Student Marks">
+            </div>
+            <div class="btn">
+                <button id="a">Save</button>
+            </div>
+        </form>
+        <table id="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>BRANCH</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var id = document.getElementById('id');
+        var name1 = document.getElementById('name1');
+        var marks = document.getElementById('marks');
+        var btn = document.getElementById('a');
+        var t = document.querySelector('#table tbody');
+
+        btn.addEventListener('click', save);
+
+        function save(event) {
+            event.preventDefault();
+            postData();
+            getData();
+            id.value = '';
+            name1.value = '';
+            marks.value = '';
+        }
+        async function postData() {
+            const res = await fetch('http://127.0.0.1:8888/postDetails', {
+                method: 'POST',
+                body: JSON.stringify({
+                    ID: id.value,
+                    NAME: name1.value,
+                    MARKS: marks.value
+                }),
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const data = await res.json();
+            alert(data.message);
+        }
+
+        async function getData() {
+            const response = await fetch('http://127.0.0.1:8888/getDetails');
+            const d = await response.json();
+
+            t.innerHTML = '';
+
+            d.map(student => {
+
+                var row = document.createElement('tr');
+
+                var cell1 = document.createElement('td');
+                cell1.textContent = student.id;
+
+                var cell2 = document.createElement('td');
+                cell2.textContent = student.name;
+
+                var cell3 = document.createElement('td');
+                cell3.textContent = student.branch;
+
+                row.appendChild(cell1);
+                row.appendChild(cell2);
+                row.appendChild(cell3);
+
+                t.appendChild(row);
+            });
+        }
+
+        btn.addEventListener('mouseover',(e)=>{
+            e.target.style.backgroundColor="#03a845";
+        });
+        btn.addEventListener('mouseout',(e)=>{
+            e.target.style.backgroundColor="green";
+        });
+
+    </script>
+</body>
+
+</html>
