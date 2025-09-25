@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixed Sidebar + Header</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="h-screen overflow-hidden">
+	<div class="flex h-screen">
+		<!-- Left Sidebar -->
+		<aside
+			class="w-64 bg-teal-500 text-white flex flex-col items-center py-6 fixed top-0 left-0 h-full">
+			<div
+				class="p-5 bg-black text-white w-20 h-20 rounded-full flex justify-center items-center">
+				<i class="fa-solid fa-stethoscope text-3xl font-bold"></i>
+			</div>
+
+			<nav class="flex flex-col text-white text-lg mt-6 w-full px-4">
+				<!-- Dashboard -->
+				<a href="./admin.html"
+					class="my-2 flex items-center gap-3 hover:bg-teal-600 px-3 py-2 rounded-lg transition">
+					<i class="fa-solid fa-house-user"></i> Dashboard
+				</a>
+
+				<!-- Patient -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-person-cane mr-2"></i> Patient</span>
+						<i class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./viewPatients.html" class="block hover:text-gray-200">View
+							Patients</a>
+					</div>
+				</div>
+
+				<!-- Doctor -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-user-doctor mr-2"></i> Doctor</span> <i
+							class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./addDocter.html" class="block hover:text-gray-200">Add
+							Doctor</a> <a href="./viewDocter.html"
+							class="block hover:text-gray-200" id="viewDocters">View
+							Doctors</a>
+					</div>
+				</div>
+
+				<!-- Appointment -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-calendar-check mr-2"></i>
+							Appointment</span> <i class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./viewAppointment.html" class="block hover:text-gray-200">View
+							Appointments</a>
+					</div>
+				</div>
+
+				<!-- Bill -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-money-bill mr-2"></i> Bill</span> <i
+							class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./generateBills.html" class="block hover:text-gray-200">Generate
+							Bill</a> <a href="./viewBills.html" class="block hover:text-gray-200">Payment
+							History</a>
+					</div>
+				</div>
+
+				<!-- Staff -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-users mr-2"></i> Staff</span> <i
+							class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./addStaff.html" class="block hover:text-gray-200">Add
+							Staff</a> <a href="./viewStaff.html"
+							class="block hover:text-gray-200">View Roles</a>
+					</div>
+				</div>
+
+				<!-- Reports -->
+				<a href="./reports.html"
+					class="my-2 flex items-center gap-3 hover:bg-teal-600 px-3 py-2 rounded-lg transition">
+					<i class="fa-solid fa-file-alt"></i> Reports
+				</a>
+
+				<!-- Logout -->
+				<a href="LogoutServlet"
+					class="my-2 flex items-center gap-3 hover:bg-red-600 px-3 py-2 rounded-lg transition">
+					<i class="fa-solid fa-right-from-bracket"></i> Logout
+				</a>
+			</nav>
+		</aside>
+
+
+		<!-- Main Content Area -->
+		<div class="flex-1 ml-64 flex flex-col">
+			<!-- Header -->
+			<header
+				class="h-20 bg-white shadow-md flex justify-end items-center px-6 fixed top-0 left-64 right-0 z-10">
+				<div>
+					<p class="mx-3 font-bold text-center">vamsi teruvai</p>
+					<p class="text-sm text-center">Admin Profile</p>
+				</div>
+				<div
+					class="border-solid border w-15 h-15 rounded-full flex items-center justify-center">
+					<img src="./assets/blogimg1.jpg" alt="profile"
+						class="mx-3 w-12 h-12 rounded-full">
+				</div>
+			</header>
+
+			<!-- Scrollable Content -->
+			<main class="mt-20 p-6 overflow-y-auto">
+				<div class="flex justify-around grid grid-cols-2">
+					<!-- Slider -->
+					<div class="w-[600px] h-100 my-10 overflow-hidden" id="slider">
+						<div class="w-[100%] h-[100%] flex transition duration-700 ease"
+							id="slides">
+							<img src="./assets/slider/img1.jpg" alt=""
+								class="w-[600px] h-100 rounded-xl shadow-2xl"> <img
+								src="./assets/slider/img2.jpg" alt=""
+								class="w-[600px] h-100 rounded-xl shadow-2xl"> <img
+								src="./assets/slider/img3.jpg" alt=""
+								class="w-[600px] h-100 rounded-xl shadow-2xl"> <img
+								src="./assets/slider/img4.jpg" alt=""
+								class="w-[600px] h-100 rounded-xl shadow-2xl">
+						</div>
+					</div>
+
+					<!-- cards -->
+					<section class="p-6">
+						<h2 class="font-bold text-xl mb-6">Hospitality Status</h2>
+
+						<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+							<!-- Card 1 -->
+							<div
+								class="p-6 bg-white shadow rounded-lg flex items-center space-x-4">
+								<i class="fa-solid fa-clipboard-list text-orange-400 text-4xl"></i>
+								<div>
+									<h3 class="font-semibold text-gray-700">Total Appointment</h3>
+									<p class="text-gray-500 text-lg font-bold" id="appointment">0</p>
+								</div>
+							</div>
+
+							<!-- Card 2 -->
+							<div
+								class="p-6 bg-white shadow rounded-lg flex items-center space-x-4">
+								<i class="fa-solid fa-person-cane text-sky-400 text-4xl"></i>
+								<div>
+									<h3 class="font-semibold text-gray-700">Total Patients</h3>
+									<p class="text-gray-500 text-lg font-bold" id="patient">0</p>
+								</div>
+							</div>
+
+							<!-- Card 3 -->
+							<div
+								class="p-6 bg-white shadow rounded-lg flex items-center space-x-4">
+								<i class="fa-solid fa-user-doctor text-orange-300 text-4xl"></i>
+								<div>
+									<h3 class="font-semibold text-gray-700">Patients per
+										Doctor</h3>
+									<p class="text-gray-500 text-lg font-bold">16</p>
+								</div>
+							</div>
+
+							<!-- Card 4 -->
+							<div
+								class="p-6 bg-white shadow rounded-lg flex items-center space-x-4">
+								<i class="fa-solid fa-virus-covid text-pink-400 text-4xl"></i>
+								<div>
+									<h3 class="font-semibold text-gray-700">Covid Patients</h3>
+									<p class="text-gray-500 text-lg font-bold">0</p>
+								</div>
+							</div>
+
+							<!-- Card 5 -->
+							<div
+								class="p-6 bg-white shadow rounded-lg flex items-center space-x-4">
+								<i class="fa-solid fa-user-md text-purple-400 text-4xl"></i>
+								<div>
+									<h3 class="font-semibold text-gray-700">Total Doctor</h3>
+									<p class="text-gray-500 text-lg font-bold" id="doctor">0</p>
+								</div>
+							</div>
+
+							<!-- Card 6 -->
+							<div
+								class="p-6 bg-white shadow rounded-lg flex items-center space-x-4">
+								<i class="fa-solid fa-user-nurse text-green-400 text-4xl"></i>
+								<div>
+									<h3 class="font-semibold text-gray-700">Total Nurse</h3>
+									<p class="text-gray-500 text-lg font-bold" id="staff">0</p>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<!-- Appointment -->
+					<div id="addAppointment">
+						<section class="bg-white py-12">
+							<div class="max-w-4xl mx-auto px-6">
+								<!-- Heading -->
+								<div class="text-center mb-8">
+									<h2 class="text-3xl font-bold text-indigo-800">Book an
+										Appointment</h2>
+									<p class="text-gray-500 mt-2">Please fill in the details
+										below to schedule your visit.</p>
+								</div>
+
+								<!-- Appointment Form -->
+								<form class="bg-white shadow-lg rounded-xl p-8 space-y-6"
+									action="PatientServlet" method="post" onsubmit="return validateForm(this)">
+									<!-- Name -->
+									<div>
+										<label for="name"
+											class="block text-sm font-medium text-gray-700">Full
+											Name</label> <input type="text" id="name" name="pname"
+											class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-3"
+											placeholder="Enter your full name">
+									</div>
+
+									<!-- Email -->
+									<div>
+										<label for="email"
+											class="block text-sm font-medium text-gray-700">Email
+											Address</label> <input type="email" id="email" name="pemail"
+											class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-3"
+											placeholder="Enter your email">
+									</div>
+
+									<!-- Phone -->
+									<div>
+										<label for="phone"
+											class="block text-sm font-medium text-gray-700">Phone
+											Number</label> <input type="tel" id="phone" name="phone"
+											class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-3"
+											placeholder="Enter your phone number">
+									</div>
+
+									<!-- Age -->
+									<div>
+										<label for="age"
+											class="block text-sm font-medium text-gray-700">Age </label>
+										<input type="number" id="age" name="age"
+											class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-3"
+											placeholder="Enter your age">
+									</div>
+
+									<!-- Address -->
+									<div>
+										<label for="address"
+											class="block text-sm font-medium text-gray-700">Address
+										</label> <input type="text" id="address" name="address"
+											class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-3"
+											placeholder="Enter your address">
+									</div>
+
+									<!-- Date -->
+									<div>
+										<label for="date"
+											class="block text-sm font-medium text-gray-700">Preferred
+											Date</label> <input type="date" id="date" name="date"
+											class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-3" required>
+									</div>
+
+									<!-- Doctors -->
+									<div>
+										<label class="block text-sm font-medium text-gray-700 mb-1">Doctors</label>
+										<select
+											class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+											name="docter" required>
+											<option value="none">Select doctor</option>
+
+										</select>
+									</div>
+
+									<!-- Message -->
+									<div>
+										<label for="message"
+											class="block text-sm font-medium text-gray-700">Reason
+											for Visit</label>
+										<textarea id="message" name="message" rows="3"
+											class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 p-3"
+											placeholder="Briefly describe your concern" required></textarea>
+									</div>
+
+									<!-- Submit Button -->
+									<div class="text-center">
+										<button type="submit"
+											class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-lg shadow-lg transition duration-300">
+											Book Appointment</button>
+									</div>
+								</form>
+							</div>
+						</section>
+					</div>
+
+
+					<div>
+						<!-- department -->
+						<section class="p-6">
+							<h2 class="font-bold text-xl mb-6">Hospital Departments</h2>
+
+							<div class="overflow-x-auto">
+								<table
+									class="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+									<thead class="bg-gray-100 text-gray-700">
+										<tr>
+											<th class="py-3 px-6 text-left">ID</th>
+											<th class="py-3 px-6 text-left">Department Name</th>
+											<th class="py-3 px-6 text-center">Doctors in Department</th>
+										</tr>
+									</thead>
+									<tbody class="text-gray-600">
+										<tr class="border-b hover:bg-gray-50">
+											<td class="py-3 px-6">1</td>
+											<td class="py-3 px-6 dept">Cardiology</td>
+											<td class="py-3 px-6 text-center count">0</td>
+										</tr>
+										<tr class="border-b hover:bg-gray-50">
+											<td class="py-3 px-6">2</td>
+											<td class="py-3 px-6 dept">Neurology</td>
+											<td class="py-3 px-6 text-center count">0</td>
+										</tr>
+										<tr class="border-b hover:bg-gray-50">
+											<td class="py-3 px-6">3</td>
+											<td class="py-3 px-6 dept">Orthopedics</td>
+											<td class="py-3 px-6 text-center count">0</td>
+										</tr>
+										<tr class="border-b hover:bg-gray-50">
+											<td class="py-3 px-6">4</td>
+											<td class="py-3 px-6 dept">Pediatrics</td>
+											<td class="py-3 px-6 text-center count">0</td>
+										</tr>
+										<tr class="border-b hover:bg-gray-50">
+											<td class="py-3 px-6">5</td>
+											<td class="py-3 px-6 dept">Oncology</td>
+											<td class="py-3 px-6 text-center count">0</td>
+										</tr>
+										<tr class="hover:bg-gray-50">
+											<td class="py-3 px-6">6</td>
+											<td class="py-3 px-6 dept">Dermatology</td>
+											<td class="py-3 px-6 text-center count">0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</section>
+
+						<!-- nurses -->
+						<section class="max-w-6xl mx-auto p-6">
+							<h2 class="text-2xl font-bold text-indigo-700 mb-5">Nurses
+								in Each Department</h2>
+							<div class="overflow-x-auto bg-white shadow-lg rounded-lg">
+								<table class="w-full text-left border-collapse">
+									<thead>
+										<tr class="bg-indigo-600 text-white">
+											<th class="px-6 py-3">ID</th>
+											<th class="px-6 py-3">Department Name</th>
+											<th class="px-6 py-3">Nurses Count</th>
+										</tr>
+									</thead>
+									<tbody class="divide-y">
+										<tr class="hover:bg-gray-50 transition">
+											<td class="px-6 py-4">1</td>
+											<td class="px-6 py-4 dept1">Cardiology</td>
+											<td class="px-6 py-4 count1">0</td>
+										</tr>
+										<tr class="hover:bg-gray-50 transition">
+											<td class="px-6 py-4">2</td>
+											<td class="px-6 py-4 dept1">Neurology</td>
+											<td class="px-6 py-4 count1">0</td>
+										</tr>
+										<tr class="hover:bg-gray-50 transition">
+											<td class="px-6 py-4">3</td>
+											<td class="px-6 py-4 dept1">Orthopedics</td>
+											<td class="px-6 py-4 count1">0</td>
+										</tr>
+										<tr class="hover:bg-gray-50 transition">
+											<td class="px-6 py-4">4</td>
+											<td class="px-6 py-4 dept1">Pediatrics</td>
+											<td class="px-6 py-4 count1">0</td>
+										</tr>
+										<tr class="hover:bg-gray-50 transition">
+											<td class="px-6 py-4">5</td>
+											<td class="px-6 py-4 dept1">Oncology</td>
+											<td class="px-6 py-4 count1">0</td>
+										</tr>
+										<tr class="hover:bg-gray-50 transition">
+											<td class="px-6 py-4">6</td>
+											<td class="px-6 py-4 dept1">Dermatology</td>
+											<td class="px-6 py-4 count1">0</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</section>
+					</div>
+
+
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<!-- FontAwesome -->
+	<script src="https://kit.fontawesome.com/687c341695.js"
+		crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/687c341695.js"
+		crossorigin="anonymous"></script>
+	<script>
+        const slides = document.querySelector('#slides');
+        const images = document.querySelectorAll('#slides img');
+
+        let index = 0;
+
+        function showSlide() {
+            index++;
+            if (index >= images.length) {
+                index = 0;
+            }
+            slides.style.transform = `translateX(${-index * 600}px)`;
+        }
+
+        setInterval(showSlide, 2000);
+        
+        
+        setTimeout(async () => {
+            const res = await fetch("http://localhost:2025/hospital_project/DocterServlet");
+            const data = await res.json();
+
+            let select=document.querySelector('select');
+
+            data.map((ele) => {
+                let option = document.createElement('option');
+                option.value = ele.last_name;
+                option.textContent=ele.last_name
+
+                select.appendChild(option);
+            });
+
+        }, 1000);
+        
+        setTimeout(async () => {
+            const res = await fetch("http://localhost:2025/hospital_project/DocterServlet");
+            const data = await res.json();
+
+            let select=document.querySelector('select');
+
+            data.map((ele) => {
+                let option = document.createElement('option');
+                option.value = ele.last_name;
+                option.textContent=ele.last_name
+
+                select.appendChild(option);
+            });
+
+        }, 1000);
+        
+        setTimeout(async () => {
+            const res = await fetch("http://localhost:2025/hospital_project/CountServlet");
+            const data = await res.json();
+
+            document.querySelector('#appointment').textContent=data.patient;
+            document.querySelector('#doctor').textContent=data.doctor;
+            document.querySelector('#staff').textContent=data.staff	;
+            document.querySelector('#patient').textContent=data.patient;
+
+        }, 1000);
+        
+        setTimeout(async () => {
+            const res = await fetch("http://localhost:2025/hospital_project/DoctorStaffCount?type=doctor");
+            const data = await res.json();
+			
+            var counts=document.querySelectorAll('.count');
+            var dept=document.querySelectorAll('.dept');
+    		
+    		for(let i=0;i<dept.length;i++){
+    			if(dept[i].textContent==="Cardiology")counts[i].textContent=data['Cardiology'];
+    			else if(dept[i].textContent==="Neurology")counts[i].textContent=data['Neurology'];
+    			else if(dept[i].textContent==="Orthopedics")counts[i].textContent=data['Orthopedics'];
+    			else if(dept[i].textContent==="Pediatrics")counts[i].textContent=data['Pediatrics'];
+    			else if(dept[i].textContent==="Oncology")counts[i].textContent=data['Oncology'];
+    			else if(dept[i].textContent==="Dermatology")counts[i].textContent=data['Dermatology'];
+    		}
+
+        }, 1000);
+        
+        setTimeout(async () => {
+            const res = await fetch("http://localhost:2025/hospital_project/DoctorStaffCount?type=staff");
+            const data = await res.json();
+			
+            var counts=document.querySelectorAll('.count1');
+            var dept=document.querySelectorAll('.dept1');
+    		
+    		for(let i=0;i<dept.length;i++){
+    			if(dept[i].textContent==="Cardiology")counts[i].textContent=data['Cardiology'];
+    			else if(dept[i].textContent==="Neurology")counts[i].textContent=data['Neurology'];
+    			else if(dept[i].textContent==="Orthopedics")counts[i].textContent=data['Orthopedics'];
+    			else if(dept[i].textContent==="Pediatrics")counts[i].textContent=data['Pediatrics'];
+    			else if(dept[i].textContent==="Oncology")counts[i].textContent=data['Oncology'];
+    			else if(dept[i].textContent==="Dermatology")counts[i].textContent=data['Dermatology'];
+    		}
+
+        }, 1000);
+        
+        function validateForm(form) {
+			// Regex patterns
+			const emailRe = /^[A-Za-z0-9]+([._%+-]?[A-Za-z0-9]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
+			const pwdRe = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+			const indiaRe = /^[6-9]\d{9}$/;
+			const intlRe = /^\+?[1-9]\d{9,14}$/;
+
+			// Field values
+			const fname = document.querySelector('[name="firstname"]').value
+					.trim();
+			const lname = document.querySelector('[name="lastname"]').value
+					.trim();
+			const phone = document.querySelector('[name="phone"]').value.trim();
+			const email = document.querySelector('[name="pgmail"]').value.trim();
+			const age = document.querySelector('[name="age"]').value.trim();
+	
+			// Validations
+			if (fname === "" || lname === "") {
+				alert("First and last name are required.");
+				return false;
+			}
+			if (!indiaRe.test(phone) && !intlRe.test(phone)) {
+				alert("Enter a valid phone number.");
+				return false;
+			}
+			if (!emailRe.test(email)) {
+				alert("Please enter a valid email.");
+				return false;
+			}
+			if (age === "" || parseInt(age) < 20 || parseInt(age) > 100) {
+				alert("Enter a valid age between 20 and 100.");
+				return false;
+			}
+			setTimeout(() => form.reset(), 100);
+		    return true;
+		
+		}
+    </script>
+</body>
+
+</html>

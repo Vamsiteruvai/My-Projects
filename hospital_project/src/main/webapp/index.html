@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: "Poppins", sans-serif;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- banner -->
+    <section class="flex flex-col md:flex-row justify-between items-center w-full px-6 py-4 bg-white shadow">
+        <!-- Logo / Title -->
+        <h1 class="text-2xl font-bold text-indigo-500 mb-3 md:mb-0 flex items-center">
+            <i class="fa-solid fa-hospital mr-2"></i> Our Hospital
+        </h1>
+
+        <!-- Contact Info -->
+        <div
+            class="flex flex-col md:flex-row items-center text-gray-700 text-sm md:text-base space-y-3 md:space-y-0 md:space-x-6">
+            <p class="flex items-center">
+                <i class="fa-solid fa-location-dot text-sky-400 mr-2"></i> KBHP, Hyderabad, Telangana
+            </p>
+
+            <p class="flex items-center">
+                Have a Question? <i class="fa-solid fa-phone text-sky-400 ml-2 mr-1"></i> +91 9966337722
+            </p>
+
+            <!-- Appointment Button -->
+            <a href="./signIn_Up.html"
+                class="bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-400 transition duration-300 ease-in text-center w-full md:w-auto">
+                <i class="fa-solid fa-calendar-check mr-2"></i> Book an Appointment
+            </a>
+        </div>
+    </section>
+    <!-- header -->
+    <header
+        class="flex flex-wrap items-center justify-between py-5 px-6 bg-indigo-900 text-white sticky z-50 top-0 left-0" id="home">
+        <!-- Logo -->
+        <h1 class="font-bold text-2xl flex items-center">
+            <i class="fa-solid fa-hospital mr-2"></i> Hospital
+        </h1>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-6 text-md">
+            <a href="#home" class="hover:text-indigo-400 transition">Home</a>
+            <a href="#about" class="hover:text-indigo-400 transition">About Clinic</a>
+            <a href="#service" class="hover:text-indigo-400 transition">Services</a>
+            <a href="#treat" class="hover:text-indigo-400 transition">What we treat</a>
+            <a href="#blog" class="hover:text-indigo-400 transition">Blog</a>
+            <a href="#contact" class="hover:text-indigo-400 transition">Contact</a>
+        </nav>
+
+        <!-- User Icon (always visible) -->
+        <a href="./signIn_Up.html" class="font-bold text-xl ml-4" target="_blank">
+            <i class="fa-solid fa-user text-green-300 p-3 rounded-full hover:bg-indigo-600 transition"></i>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="menu-btn" class="md:hidden text-2xl ml-4">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <!-- Mobile Nav (hidden by default) -->
+        <nav id="mobile-menu" class="hidden w-full mt-4 flex-col space-y-3 text-md md:hidden">
+            <a href="#home" class="block hover:text-indigo-400 transition">Home</a>
+            <a href="#about" class="block hover:text-indigo-400 transition">About Clinic</a>
+            <a href="#service" class="block hover:text-indigo-400 transition">Services</a>
+            <a href="#treat" class="block hover:text-indigo-400 transition">What we treat</a>
+            <a href="#blog" class="block hover:text-indigo-400 transition">Blog</a>
+            <a href="#contact" class="block hover:text-indigo-400 transition">Contact</a>
+        </nav>
+    </header>
+    <!-- hero -->
+    <section
+        class="flex justify-center items-center bg-[url(./assets/hero.png)] bg-cover bg-repeat bg-center h-screen">
+        <a href="./signIn_Up.html"
+            class="bg-indigo-900 p-5 rounded-md text-white text-md hover:bg-indigo-800 transition duration-300 ease-in">Explore
+            Now <i class="fa-solid fa-arrow-right font-bold"></i></a>
+    </section>
+
+    <!-- about -->
+    <section class="flex flex-col md:flex-row p-7 bg-gray-200 items-center" id="about">
+        <!-- Text -->
+        <div class="flex flex-col justify-center text-justify p-5 md:w-1/2">
+            <h2 class="font-bold text-2xl text-indigo-800 mb-4">About Us</h2>
+            <p class="text-sky-900 leading-relaxed">
+                Our hospital works to give the best care to every patient with kindness and respect.
+                We have experienced doctors, nurses, and staff who use modern medical equipment to
+                provide safe and reliable treatment.
+                <br><br>
+                We offer many services like check-ups, diagnosis, treatment, surgery, and emergency care.
+                Our goal is to keep people healthy and to help them recover quickly when they are sick.
+                <br><br>
+                We believe in caring for both the body and mind of our patients. By improving our services
+                and using new medical methods, we try to make healthcare easy, affordable, and available for everyone.
+            </p>
+        </div>
+
+        <!-- Image -->
+        <div class="md:w-1/2 mt-5 md:mt-0 flex justify-center">
+            <img src="./assets/img1.jpg" alt="image" class="rounded-3xl shadow-2xl w-full md:w-4/5 object-cover">
+        </div>
+    </section>
+
+
+    <!-- services -->
+    <section class="flex flex-col items-center bg-sky-100 py-10" id="service">
+        <h1 class="font-bold text-2xl text-indigo-800 my-3">Our Services</h1>
+        <h1 class="text-3xl w-[80%] text-center my-3 font-bold text-gray-500">We offer a whole range of treatments for
+            you, your
+            family and friends</h1>
+        <div class="grid grid-cols-4 gap-5 my-3 place-items-center">
+            <img src="./assets/img2.jpg" alt="img" class="rounded-full w-40 h-40 object-cover">
+            <img src="./assets/img3.jpg" alt="img" class="rounded-full w-40 h-40 object-cover">
+            <img src="./assets/img4.png" alt="img" class="rounded-full w-40 h-40 object-cover">
+            <img src="./assets/img5.jpg" alt="img" class="rounded-full w-40 h-40 object-cover">
+            <img src="./assets/img6.jpg" alt="img" class="rounded-full w-40 h-40 object-cover">
+            <img src="./assets/img7.jpg" alt="img" class="rounded-full w-40 h-40 object-cover">
+            <img src="./assets/img8.jpg" alt="img" class="rounded-full w-40 h-40 object-cover">
+            <img src="./assets/img9.jpg" alt="img" class="rounded-full w-40 h-40 object-cover">
+        </div>
+
+
+
+    </section>
+
+    <!-- treat -->
+    <section class="p-7 bg-white" id="treat">
+        <h1 class="font-bold text-2xl text-indigo-800 my-6 text-center">TREATMENTS</h1>
+
+        <!-- Heart Problems -->
+        <div
+            class="flex flex-col md:flex-row items-center p-5 rounded-lg text-justify hover:scale-105 transition duration-150 ease-in bg-gray-200 mb-6">
+            <img src="./assets/heart.jpg" alt="heart" class="rounded-xl w-full md:w-1/2 h-64 object-cover">
+            <div class="md:mx-6 mt-4 md:mt-0">
+                <h2 class="font-bold text-indigo-800 text-xl mb-2">1. Heart Problems</h2>
+                <p>
+                    We provide complete care for people with heart-related issues such as high blood pressure, chest
+                    pain,
+                    and heart disease. Our doctors use ECG, scans, and other tests to check the heart’s condition.
+                    Patients
+                    are given the right medicines to control blood pressure and reduce risks. Along with medicines, we
+                    also give advice about lifestyle changes like healthy eating and exercise. For serious cases,
+                    advanced
+                    treatments and surgeries are available. We provide regular check-ups to prevent future problems.
+                    Emergency services are open all the time for heart attacks or sudden chest pain. Our doctors and
+                    nurses work together to keep patients safe. We believe that early care and continuous monitoring are
+                    the
+                    best ways to protect the heart. Our goal is to help every patient live a healthy and strong life.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bone & Joint Issues -->
+        <div
+            class="flex flex-col md:flex-row-reverse items-center p-5 rounded-lg text-justify hover:scale-105 transition duration-150 ease-in bg-gray-200 mb-6">
+            <img src="./assets/bone.jpg" alt="bone" class="rounded-xl w-full md:w-1/2 h-64 object-cover">
+            <div class="md:mx-6 mt-4 md:mt-0">
+                <h2 class="font-bold text-indigo-800 text-xl mb-2">2. Bone & Joint Issues</h2>
+                <p>
+                    We provide expert care for bone and joint-related issues such as arthritis, fractures, back pain,
+                    and knee problems. Our team uses X-rays, MRI, and other tests to detect problems accurately.
+                    Treatment
+                    includes medicines, physiotherapy, and lifestyle guidance to reduce pain and improve movement. For
+                    severe
+                    cases, surgeries like knee replacement are available. We encourage exercise routines that strengthen
+                    bones
+                    and joints. Patients receive personal recovery plans to avoid further issues. Emergency care is also
+                    available for sudden fractures or injuries. With modern facilities and trained specialists, we
+                    ensure
+                    better recovery and mobility. Our aim is to help people live pain-free and active lives.
+                </p>
+            </div>
+        </div>
+
+        <!-- Child Care -->
+        <div
+            class="flex flex-col md:flex-row items-center p-5 rounded-lg text-justify hover:scale-105 transition duration-150 ease-in bg-gray-200 mb-6">
+            <img src="./assets/child.jpg" alt="child" class="rounded-xl w-full md:w-1/2 h-64 object-cover">
+            <div class="md:mx-6 mt-4 md:mt-0">
+                <h2 class="font-bold text-indigo-800 text-xl mb-2">3. Child Care</h2>
+                <p>
+                    We offer complete healthcare services for children from birth to adolescence. Regular check-ups
+                    ensure
+                    children grow in a healthy way. Vaccinations are given on time to protect them from diseases. We
+                    also treat
+                    common issues like fever, cough, and stomach pain. Special care is provided to newborn babies with
+                    modern
+                    support systems. Nutrition advice is given to parents so children grow strong. Growth tracking is
+                    done to
+                    monitor height and weight. Our doctors create a safe and friendly environment for children.
+                    Emergency
+                    services are available for sudden illnesses. Our goal is to ensure every child remains healthy,
+                    happy, and safe.
+                </p>
+            </div>
+        </div>
+
+        <!-- Women's Health -->
+        <div
+            class="flex flex-col md:flex-row-reverse items-center p-5 rounded-lg text-justify hover:scale-105 transition duration-150 ease-in bg-gray-200">
+            <img src="./assets/women.jpg" alt="women" class="rounded-xl w-full md:w-1/2 h-64 object-cover">
+            <div class="md:mx-6 mt-4 md:mt-0">
+                <h2 class="font-bold text-indigo-800 text-xl mb-2">4. Women’s Health</h2>
+                <p>
+                    We provide healthcare services designed especially for women at every stage of life. Pregnancy care
+                    is
+                    available with regular check-ups and safe delivery support. Postnatal care is provided for mother’s
+                    recovery.
+                    Our gynecology services treat PCOS, infections, and menstrual problems. Women can also get
+                    preventive care
+                    such as screenings and early diagnosis tests. Nutrition and wellness advice is offered to improve
+                    overall
+                    health. Modern facilities like ultrasound and lab tests ensure accurate treatment. Counseling
+                    services are
+                    available for women with health concerns. Regular check-ups are encouraged for women of all ages.
+                    Our aim is
+                    to provide respectful, safe, and comprehensive care for every woman.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- contact -->
+    <section class="bg-white py-12" id="contact">
+        <div class="max-w-4xl mx-auto px-6">
+            <!-- Heading -->
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Contact Us</h2>
+                <p class="text-gray-500 mt-2">We’d love to hear from you. Please fill out the form below.</p>
+            </div>
+
+            <!-- Contact Form -->
+            <form class="bg-white shadow-lg rounded-xl p-8 space-y-6">
+                <!-- Name -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                    <input type="text" id="name" name="name"
+                        class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-3"
+                        placeholder="Enter your full name">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                    <input type="email" id="email" name="email"
+                        class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-3"
+                        placeholder="Enter your email">
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input type="tel" id="phone" name="phone"
+                        class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-3"
+                        placeholder="Enter your phone number">
+                </div>
+
+                <!-- disease -->
+                <div>
+                    <label for="disease" class="block text-sm font-medium text-gray-700">Disease</label>
+                    <input type="text" id="disease" name="disease"
+                        class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-3"
+                        placeholder="Enter your disease">
+                </div>
+
+                <!-- Address -->
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+                    <textarea id="address" name="address" rows="3"
+                        class="mt-2 block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 p-3"
+                        placeholder="Enter your address"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg shadow-lg transition duration-300">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- blog -->
+    <section class="bg-white py-12" id="blog">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Heading -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Latest Blog Posts</h2>
+                <p class="text-gray-500 mt-2">Stay updated with our latest news and articles</p>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Blog Card 1 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden hover:scale-105 duration-300 ease-in-out">
+                    <img src="./assets/blogimg1.jpg" alt="Blog 1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Healthy Eyes: Daily Care Tips</h3>
+                        <p class="text-gray-600 mt-3 text-sm">
+                            Learn simple habits to keep your eyes healthy, reduce strain, and improve vision naturally
+                            with daily care.
+                        </p>
+                        <a href="#" class="inline-block mt-4 text-blue-600 font-medium hover:underline">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 2 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden hover:scale-105 duration-300 ease-in">
+                    <img src="./assets/blogimg1.jpg" alt="Blog 2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Understanding Cataracts</h3>
+                        <p class="text-gray-600 mt-3 text-sm">
+                            Cataracts affect millions worldwide. Discover symptoms, treatment options, and prevention
+                            methods in this article.
+                        </p>
+                        <a href="#" class="inline-block mt-4 text-blue-600 font-medium hover:underline">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Card 3 -->
+                <div class="bg-white shadow-lg rounded-xl overflow-hidden hover:scale-105 duration-300 ease-in">
+                    <img src="./assets/blogimg1.jpg" alt="Blog 3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800">Importance of Regular Checkups</h3>
+                        <p class="text-gray-600 mt-3 text-sm">
+                            Regular eye checkups help detect issues early and protect your vision. Here’s why they
+                            should not be skipped.
+                        </p>
+                        <a href="#" class="inline-block mt-4 text-blue-600 font-medium hover:underline">Read More →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+    <footer class="bg-blue-900 text-white py-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+
+            <!-- Logo & About -->
+            <div>
+                <h2 class="text-2xl font-bold">Our Hospital</h2>
+                <p class="text-sm text-blue-200 mt-2">CLINIC</p>
+                <p class="mt-4 text-sm text-blue-300">
+                    We are a recognized leader in high-tech ophthalmology services
+                </p>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="hover:text-blue-400"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-blue-400"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- What We Treat -->
+            <div>
+                <h3 class="text-lg font-semibold mb-3">What We Treat</h3>
+                <ul class="space-y-1 text-blue-200">
+                    <li>Heart Problems</li>
+                    <li>Bone & Joint Issues</li>
+                    <li>Child Care</li>
+                    <li>Farsightedness</li>
+                    <li>Womens's Health</li>
+                </ul>
+            </div>
+
+            <!-- Contacts -->
+            <div>
+                <h3 class="text-lg font-semibold mb-3">Contacts</h3>
+                <ul class="space-y-2 text-blue-200 text-sm">
+                    <li class="flex items-center space-x-2">
+                        <span>📍</span>
+                        <span>670 Lafayette Ave, Brooklyn, NY 11216</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span>📞</span>
+                        <span>(123) 456-7890</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span>📧</span>
+                        <span>info@demolink.org</span>
+                    </li>
+                    <li class="flex items-center space-x-2">
+                        <span>📅</span>
+                        <a href="./signIn_Up.html" class="hover:text-blue-400">Book an Appointment</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Opening Hours -->
+            <div>
+                <h3 class="text-lg font-semibold mb-3">Opening Hours</h3>
+                <ul class="space-y-1 text-blue-200 text-sm">
+                    <li>Monday — 8am – 7pm</li>
+                    <li>Tuesday — 8am – 7pm</li>
+                    <li>Wednesday — 8am – 7:30pm</li>
+                    <li>Thursday — 8am – 6:30pm</li>
+                    <li>Friday — 8am – 5pm</li>
+                    <li>Saturday — 8am – 2pm</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="border-t border-blue-700 mt-8 pt-4 text-center text-sm text-blue-300">
+            <p>Copyright © 2025 Our hospital.
+                <a href="#" class="hover:text-blue-400">Privacy Policy</a> |
+                <a href="#" class="hover:text-blue-400">Terms of Use</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
+
+    <script src="https://kit.fontawesome.com/687c341695.js" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+
+    <script>
+        // Toggle Mobile Menu
+        document.getElementById("menu-btn").addEventListener("click", () => {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script>
+</body>
+
+</html>

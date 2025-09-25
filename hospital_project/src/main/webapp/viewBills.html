@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="h-screen overflow-hidden">
+	<div class="flex h-screen">
+		<!-- Left Sidebar -->
+		<aside
+			class="w-64 bg-teal-500 text-white flex flex-col items-center py-6 fixed top-0 left-0 h-full">
+			<div
+				class="p-5 bg-black text-white w-20 h-20 rounded-full flex justify-center items-center">
+				<i class="fa-solid fa-stethoscope text-3xl font-bold"></i>
+			</div>
+
+			<nav class="flex flex-col text-white text-lg mt-6 w-full px-4">
+				<!-- Dashboard -->
+				<a href="./admin.html"
+					class="my-2 flex items-center gap-3 hover:bg-teal-600 px-3 py-2 rounded-lg transition">
+					<i class="fa-solid fa-house-user"></i> Dashboard
+				</a>
+
+				<!-- Patient -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-person-cane mr-2"></i> Patient</span>
+						<i class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+
+						<a href="./viewPatients.html" class="block hover:text-gray-200">View
+							Patients</a>
+
+					</div>
+				</div>
+
+				<!-- Doctor -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-user-doctor mr-2"></i> Doctor</span> <i
+							class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./addDocter.html" class="block hover:text-gray-200">Add
+							Doctor</a> <a href="./viewDocter.html"
+							class="block hover:text-gray-200">View Doctors</a>
+					</div>
+				</div>
+
+				<!-- Appointment -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-calendar-check mr-2"></i>
+							Appointment</span> <i class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						 <a href="./viewAppointment.html"
+							class="block hover:text-gray-200">View Appointments</a>
+					</div>
+				</div>
+
+				<!-- Bill -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-money-bill mr-2"></i> Bill</span> <i
+							class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./generateBills.html" class="block hover:text-gray-200">Generate
+							Bill</a> <a href="./viewBills.html" class="block hover:text-gray-200">Payment
+							History</a>
+					</div>
+				</div>
+
+				<!-- Staff -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-users mr-2"></i> Staff</span> <i
+							class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./addStaff.html" class="block hover:text-gray-200">Add
+							Staff</a> <a href="./viewStaff.html"
+							class="block hover:text-gray-200">View Roles</a>
+					</div>
+				</div>
+
+				<!-- Reports -->
+				<a href="./reports.html"
+					class="my-2 flex items-center gap-3 hover:bg-teal-600 px-3 py-2 rounded-lg transition">
+					<i class="fa-solid fa-file-alt"></i> Reports
+				</a>
+
+				<!-- Logout -->
+				<a href="./index.html"
+					class="my-2 flex items-center gap-3 hover:bg-red-600 px-3 py-2 rounded-lg transition">
+					<i class="fa-solid fa-right-from-bracket"></i> Logout
+				</a>
+			</nav>
+		</aside>
+
+
+		<!-- Main Content Area -->
+		<div class="flex-1 ml-64 flex flex-col">
+			<!-- Header -->
+			<header
+				class="h-20 bg-white shadow-md flex justify-end items-center px-6 fixed top-0 left-64 right-0 z-10">
+				<div>
+					<p class="mx-3 font-bold text-center">vamsi teruvai</p>
+					<p class="text-sm text-center">Admin Profile</p>
+				</div>
+				<div
+					class="border-solid border w-15 h-15 rounded-full flex items-center justify-center">
+					<img src="./assets/blogimg1.jpg" alt="profile"
+						class="mx-3 w-12 h-12 rounded-full">
+				</div>
+			</header>
+
+			<!-- Scrollable Content -->
+			<main class="mt-20 p-6 overflow-y-auto">
+
+				<div class="bg-gray-100">
+					<div class="container mx-auto p-6">
+						<h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Payment
+							History</h1>
+
+						<!-- Payment History Table -->
+						<div class="bg-white shadow-lg rounded-lg overflow-hidden">
+							<div class="overflow-x-auto">
+								<table
+									class="w-full text-sm text-left text-gray-600 border border-gray-200">
+									<thead class="bg-gray-100 text-gray-700 uppercase text-xs">
+										<tr>
+											<th class="px-6 py-3 border">Patient Name</th>
+											<th class="px-6 py-3 border">Phone</th>
+											<th class="px-6 py-3 border">Transaction Date & Time</th>
+											<th class="px-6 py-3 border">Amount</th>
+											<th class="px-6 py-3 border">Address</th>
+										</tr>
+									</thead>
+									<tbody>
+										
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<!-- FontAwesome -->
+	<script src="https://kit.fontawesome.com/687c341695.js"
+		crossorigin="anonymous"></script>
+	<script>
+    	setTimeout(async()=>{
+    		const res=await fetch("http://localhost:2025/hospital_project/BillServlet");
+    		const data=await res.json();
+
+    		
+    		data.map((ele)=>{
+    			
+        		let tr = document.createElement('tr');
+        		tr.classList.add('hover:bg-gray-50');  
+
+        		let td1 = document.createElement('td');
+        		td1.classList.add('px-6', 'py-3','border');  
+        		td1.textContent = ele.name;
+        		
+        		let td2 = document.createElement('td');
+        		td2.classList.add('px-6', 'py-3','border');  
+        		td2.textContent = ele.phone;
+				
+        		let td3 = document.createElement('td');
+        		td3.classList.add('px-6', 'py-3','border');  
+        		td3.textContent = ele.bill_date;
+        		
+        		let td4 = document.createElement('td');
+        		td4.classList.add('px-6', 'py-3', 'border', 'text-green-600', 'font-semibold');  
+        		td4.textContent = `₹${ele.total_amount}`;
+        		
+        		let td5 = document.createElement('td');
+        		td5.classList.add('px-6', 'py-3','border');  
+        		td5.textContent = ele.address;
+        		     		
+        		tr.appendChild(td1);
+        		tr.appendChild(td2);
+        		tr.appendChild(td3);
+        		tr.appendChild(td4);
+        		tr.appendChild(td5);
+
+        		let tbody = document.querySelector('tbody');
+        		tbody.appendChild(tr);
+        		
+            });
+    		
+    	},1000);
+    </script>
+</body>
+
+</html>

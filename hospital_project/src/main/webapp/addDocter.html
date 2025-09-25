@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="h-screen overflow-hidden">
+	<div class="flex h-screen">
+		<!-- Left Sidebar -->
+		<aside
+			class="w-64 bg-teal-500 text-white flex flex-col items-center py-6 fixed top-0 left-0 h-full">
+			<div
+				class="p-5 bg-black text-white w-20 h-20 rounded-full flex justify-center items-center">
+				<i class="fa-solid fa-stethoscope text-3xl font-bold"></i>
+			</div>
+
+			<nav class="flex flex-col text-white text-lg mt-6 w-full px-4">
+				<!-- Dashboard -->
+				<a href="./admin.html"
+					class="my-2 flex items-center gap-3 hover:bg-teal-600 px-3 py-2 rounded-lg transition">
+					<i class="fa-solid fa-house-user"></i> Dashboard
+				</a>
+
+				<!-- Patient -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-person-cane mr-2"></i> Patient</span>
+						<i class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						 <a href="./viewPatients.html"
+							class="block hover:text-gray-200">View Patients</a> 
+					</div>
+				</div>
+
+				<!-- Doctor -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-user-doctor mr-2"></i> Doctor</span> <i
+							class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./addDocter.html" class="block hover:text-gray-200">Add
+							Doctor</a> <a href="./viewDocter.html"
+							class="block hover:text-gray-200">View Doctors</a>
+					</div>
+				</div>
+
+				<!-- Appointment -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-calendar-check mr-2"></i>
+							Appointment</span> <i class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						 <a href="./viewAppointment.html"
+							class="block hover:text-gray-200">View Appointments</a>
+					</div>
+				</div>
+
+				<!-- Bill -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-money-bill mr-2"></i> Bill</span> <i
+							class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./generateBills.html" class="block hover:text-gray-200">Generate
+							Bill</a> <a href="./viewBills.html" class="block hover:text-gray-200">Payment
+							History</a>
+					</div>
+				</div>
+
+				<!-- Staff -->
+				<div class="group">
+					<div
+						class="w-full flex items-center justify-between my-2 px-3 py-2 rounded-lg hover:bg-teal-600 transition cursor-pointer">
+						<span><i class="fa-solid fa-users mr-2"></i> Staff</span> <i
+							class="fa-solid fa-chevron-down text-sm"></i>
+					</div>
+					<div class="ml-8 hidden group-hover:block space-y-2">
+						<a href="./addStaff.html" class="block hover:text-gray-200">Add
+							Staff</a> <a href="./viewStaff.html"
+							class="block hover:text-gray-200">View Roles</a>
+					</div>
+				</div>
+
+				<!-- Reports -->
+				<a href="./reports.html"
+					class="my-2 flex items-center gap-3 hover:bg-teal-600 px-3 py-2 rounded-lg transition">
+					<i class="fa-solid fa-file-alt"></i> Reports
+				</a>
+
+				<!-- Logout -->
+				<a href="./index.html"
+					class="my-2 flex items-center gap-3 hover:bg-red-600 px-3 py-2 rounded-lg transition">
+					<i class="fa-solid fa-right-from-bracket"></i> Logout
+				</a>
+			</nav>
+		</aside>
+
+
+		<!-- Main Content Area -->
+		<div class="flex-1 ml-64 flex flex-col">
+			<!-- Header -->
+			<header
+				class="h-20 bg-white shadow-md flex justify-end items-center px-6 fixed top-0 left-64 right-0 z-10">
+				<div>
+					<p class="mx-3 font-bold text-center">vamsi teruvai</p>
+					<p class="text-sm text-center">Admin Profile</p>
+				</div>
+				<div
+					class="border-solid border w-15 h-15 rounded-full flex items-center justify-center">
+					<img src="../assets/blogimg1.jpg" alt="profile"
+						class="mx-3 w-12 h-12 rounded-full">
+				</div>
+			</header>
+
+			<!-- Scrollable Content -->
+			<main class="mt-20 p-6 overflow-y-auto">
+				<div
+					class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+					<div
+						class="w-full max-w-5xl bg-white shadow-lg rounded-2xl p-6 space-y-10">
+						<h2 class="text-2xl font-semibold text-gray-800">Add Doctor</h2>
+
+						<!-- Doctor Details Form -->
+						<form class="space-y-6" action="DocterServlet" method="post"
+							enctype="multipart/form-data" onsubmit="return validateForm()">
+							<h3 class="text-xl font-semibold text-gray-700 border-b pb-2">Doctor
+								Details</h3>
+
+							<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">First
+										Name</label> <input type="text" placeholder="Enter first name"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										name="firstname">
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Last
+										Name</label> <input type="text" placeholder="Enter last name"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										name="lastname">
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Phone
+										No</label> <input type="tel" placeholder="Enter phone number"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										name="phone">
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+									<input type="email" placeholder="Enter email"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										name="gmail">
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Age</label>
+									<input type="number" placeholder="Enter age"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										name="age">
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+									<select
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										name="gender">
+										<option value="none">Select gender</option>
+										<option value="Male">Male</option>
+										<option value="Female">Female</option>
+										<option value="Others">Others</option>
+									</select>
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Speciality/Department</label>
+									<input type="text" placeholder="Enter speciality"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										name="department">
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Website
+										URL</label> <input type="url" placeholder="Enter website link"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										name="website">
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Joined
+										Date</label> <input type="date"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										name="date">
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Address</label>
+									<input type="text"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										placeholder="Address" name="address">
+								</div>
+								<div>
+									<label class="block text-sm font-medium text-gray-700 mb-1">Salary</label>
+									<input type="number"
+										class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+										placeholder="Salary" name="salary">
+								</div>
+							</div>
+
+							<!-- Drag and Drop File -->
+							<!-- Drag and Drop File -->
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-2">Profile
+									Upload</label>
+								<div class="flex items-center justify-center w-full">
+									<label
+										class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 relative">
+										<div
+											class="flex flex-col items-center justify-center pt-5 pb-6"
+											id="uploadText">
+											<svg aria-hidden="true" class="w-10 h-10 text-gray-400 mb-2"
+												fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+													stroke-width="2"
+													d="M7 16V4a1 1 0 011-1h8a1 1 0 011 1v12m-5 4h.01M12 12v8" />
+        </svg>
+											<p class="text-sm text-gray-500">
+												<span class="font-semibold">Click to upload</span> or drag
+												and drop
+											</p>
+											<p class="text-xs text-gray-400">PNG, JPG, PDF up to 5MB</p>
+										</div> <!-- Hidden file input --> <input type="file" class="hidden"
+										name="image" id="fileInput" accept=".png,.jpg,.jpeg,.pdf"
+										required /> <!-- Symbol --> <span id="fileSymbol"
+										class="absolute bottom-2 right-2 text-green-600 text-2xl hidden">✔️</span>
+									</label>
+								</div>
+							</div>
+
+
+							<!-- Description -->
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Description</label>
+								<textarea rows="4" placeholder="Enter description"
+									class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+									name="description"></textarea>
+							</div>
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+								<input type="text" placeholder="Enter email"
+									class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+									name="uname">
+							</div>
+							<div>
+								<label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+								<input type="password" placeholder="Enter password"
+									class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+									name="upass">
+							</div>
+							<div class="md:col-span-2">
+								<label class="block text-sm font-medium text-gray-700 mb-1">Confirm
+									Password</label> <input type="password" placeholder="Confirm password"
+									class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+									name="uconfirmpass">
+							</div>
+
+							<!-- Buttons -->
+							<div class="flex justify-end space-x-4">
+								<button type="reset"
+									class="px-6 py-2 border rounded-lg text-gray-700 hover:bg-gray-100 transition">Cancel</button>
+								<button type="submit"
+									class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+									value="Upload">Submit</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+
+	<!-- FontAwesome -->
+	<script src="https://kit.fontawesome.com/687c341695.js"
+		crossorigin="anonymous"></script>
+
+	<script>
+		function validateForm() {
+			// Regex patterns
+			const emailRe = /^[A-Za-z0-9]+([._%+-]?[A-Za-z0-9]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
+			const pwdRe = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+			const indiaRe = /^[6-9]\d{9}$/;
+			const intlRe = /^\+?[1-9]\d{9,14}$/;
+
+			// Field values
+			const fname = document.querySelector('[name="firstname"]').value
+					.trim();
+			const lname = document.querySelector('[name="lastname"]').value
+					.trim();
+			const phone = document.querySelector('[name="phone"]').value.trim();
+			const email = document.querySelector('[name="gmail"]').value.trim();
+			const age = document.querySelector('[name="age"]').value.trim();
+			const gender = document.querySelector('[name="gender"]').value;
+			const dept = document.querySelector('[name="department"]').value
+					.trim();
+			const salary = document.querySelector('[name="salary"]').value
+					.trim();
+			const uname = document.querySelector('[name="uname"]').value.trim();
+			const pwd = document.querySelector('[name="upass"]').value;
+			const cpwd = document.querySelector('[name="uconfirmpass"]').value;
+
+			// Validations
+			if (fname === "" || lname === "") {
+				alert("First and last name are required.");
+				return false;
+			}
+			if (!indiaRe.test(phone) && !intlRe.test(phone)) {
+				alert("Enter a valid phone number.");
+				return false;
+			}
+			if (!emailRe.test(email)) {
+				alert("Please enter a valid email.");
+				return false;
+			}
+			if (age === "" || parseInt(age) < 20 || parseInt(age) > 100) {
+				alert("Enter a valid age between 20 and 100.");
+				return false;
+			}
+			if (gender === "none") {
+				alert("Please select a gender.");
+				return false;
+			}
+			if (dept === "") {
+				alert("Please enter department/speciality.");
+				return false;
+			}
+			if (salary === "" || parseFloat(salary) <= 0) {
+				alert("Enter a valid salary.");
+				return false;
+			}
+			if (!pwdRe.test(pwd)) {
+				alert("Password must be 12–64 chars, and include uppercase, lowercase, digit and special character.");
+				return false;
+			}
+			if (pwd !== cpwd) {
+				alert("Passwords do not match.");
+				return false;
+			}
+			if (uname === "") {
+				alert("Username is required.");
+				return false;
+			}
+
+			return true; 
+		}
+		
+		
+		const fileInput = document.getElementById("fileInput");
+		  const fileSymbol = document.getElementById("fileSymbol");
+		  const uploadText = document.getElementById("uploadText");
+
+		  fileInput.addEventListener("change", function () {
+		    if (fileInput.files.length > 0) {
+		      
+		      fileSymbol.classList.remove("hidden");
+		      
+		      uploadText.innerHTML = `<p class="text-sm text-gray-700 font-medium">📂 ${fileInput.files[0].name}</p>`;
+		    } else {
+		      fileSymbol.classList.add("hidden");
+		      uploadText.innerHTML = `
+		        <svg aria-hidden="true" class="w-10 h-10 text-gray-400 mb-2"
+		          fill="none" stroke="currentColor" viewBox="0 0 24 24">
+		          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+		            d="M7 16V4a1 1 0 011-1h8a1 1 0 011 1v12m-5 4h.01M12 12v8" />
+		        </svg>
+		        <p class="text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+		        <p class="text-xs text-gray-400">PNG, JPG, PDF up to 5MB</p>`;
+		    }
+		  });
+	</script>
+
+</body>
+
+</html>
